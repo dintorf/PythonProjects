@@ -26,11 +26,17 @@ Test cases
 ==========
 
 Inputs:
+
     (int list) numbers = [1, 0]
+
 Output:
+
     (int) 2
 
 Inputs:
+
     (int list) numbers = [1, 2, 1]
+
 Output:
+
     (int) 2
