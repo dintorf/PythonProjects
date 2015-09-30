@@ -15,17 +15,18 @@ Test cases
 ==========
 
 Inputs:    
-
-    (string list) x = ["foo", "bar", "oof", "bar"]
-
+```
+(string list) x = ["foo", "bar", "oof", "bar"]
+```
 Output:
-
-    (int) 2
-
+```
+(int) 2
+```
 Inputs:
-
-    (string list) x = ["x", "y", "xy", "yy", "", "yx"]
-
+```
+(string list) x = ["x", "y", "xy", "yy", "", "yx"]
+```
 Output:
-
-    (int) 5
+```
+(int) 5
+```
