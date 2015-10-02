@@ -1,12 +1,34 @@
 def answer(population, x, y, strength):
     # your code here
-    result = []
-    for y in population:
-        row = []
-        for x in y:
-            x <= strength and row.append(-1) or row.append(x)
-        result.append(row)
+    rows = len(population)
+    cols = len(population[0])
 
-    print result
+    patients_unchecked = [(x,y)]
+    patients_checked = []
 
-answer([[1, 2, 3], [2, 3, 4], [3, 2, 1]],0,0,2)
+    # function to loop through unchecked patients
+    def next():
+        for patient in patients_unchecked:
+            yield patient
+
+    for x, y in next():
+        patient_z = population[y][x]
+
+        if patient_z <= strength:
+            # append patient location to unchecked patients
+            patients_checked.append((x,y))
+            # infect patient in population
+            population[y][x] = -1
+
+            # check bounds of adjacent patients
+            # if in bounds, add patient location to unchecked patients
+            if x-1 >= 0 and (x-1, y) not in patients_checked:
+                patients_unchecked.append((x-1, y))
+            if x+1 < cols and (x+1, y) not in patients_checked:
+                patients_unchecked.append((x+1, y,))
+            if y-1 >= 0 and (x, y-1) not in patients_checked:
+                patients_unchecked.append((x, y-1))
+            if y+1 < rows and (x, y+1) not in patients_checked:
+                patients_unchecked.append((x, y+1))
+
+    return population
